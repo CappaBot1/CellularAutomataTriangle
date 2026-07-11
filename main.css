@@ -24,9 +24,14 @@ body {
     margin: 64px;
 }
 
-/*main {
-    text-align: center;
-}*/
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main > * {
+    margin: 60px auto;
+}
 
 /* anchor tag */
 a {

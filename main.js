@@ -130,3 +130,8 @@ const endTime = performance.now();
 console.log("computing ended at:", endTime);
 
 console.log(`total time: ${((endTime-startTime)/1000).toFixed(4)}s`);
+
+// set up button to download the image
+const img = canvas.toDataURL("image/png");
+const imgEl = document.getElementById("img");
+imgEl.src = img;
