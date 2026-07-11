@@ -57,8 +57,12 @@ String(id)
         rulesMap.set(rulesKeys[index], rule);
     });
 
-rulesMap.set("0,0", 0);
-rulesMap.set("0,1", 1);
+for (let i = 0; i <= numColours; i++) {
+    //rulesMap.set([0, i].join(","), i);
+    rulesMap.set([0, i].join(","), 0);
+}
+
+rulesMap.set([0, 1].join(","), 1)
 
 console.log("rules:", rulesMap);
 
@@ -67,13 +71,13 @@ ctx.fillStyle = colours[0];
 ctx.fillRect(0, 0, width, height);
 
 function computeLine(lineNo) {
-    //if (lineNo%100 === 0) console.log("computing line:", lineNo);
     for (
         let x = (lineNo-1)%2; // move over 1 pixel on odd lines
         x < width-1; // don't overshoot the canvas
         x += 2 // 2 pixels per cell
     ) {
-        computePixel(x, lineNo);
+        setTimeout(() => computePixel(x, lineNo), x);
+        //computePixel(x, lineNo);
     }
 }
 
@@ -127,7 +131,7 @@ const startTime = performance.now();
 console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
     //setTimeout(() => {computeLine(i)}, i);
-    computeLine(i)
+    computeLine(i);
 }
 const endTime = performance.now();
 console.log("computing ended at:", endTime);
