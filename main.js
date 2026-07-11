@@ -68,7 +68,7 @@ ctx.fillRect(0, 0, width, height);
 
 function computeLine(lineNo) {
     //if (lineNo%100 === 0) console.log("computing line:", lineNo);
-    console.log("computing line:", lineNo);
+    //console.log("computing line:", lineNo);
     //console.groupCollapsed("computing line:", lineNo);
     for (
         let x = (lineNo-1)%2; // move over 1 pixel on odd lines
@@ -113,6 +113,7 @@ function computePixel(x, lineNo) {
     ctx.fillRect(x, lineNo*2, 2, 2);
 }
 
+// time complexity is not coming from here
 function computeColour(left, right) {
     const ruleName = (left < right ? [left, right] : [right, left])// flip around the colours so left is smaller than right
         .join(","); // stringify it for map lookup
@@ -120,6 +121,12 @@ function computeColour(left, right) {
     return rulesMap.get(ruleName);
 }
 
+const startTime = performance.now();
+console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
     computeLine(i);
 }
+const endTime = performance.now();
+console.log("computing ended at:", endTime);
+
+console.log(`total time: ${((endTime-startTime)/1000).toFixed(4)}s`);
