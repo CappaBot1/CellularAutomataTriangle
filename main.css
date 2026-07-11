@@ -1,0 +1,39 @@
+:root {
+    --text-colour:         #ffffff;
+    --background-color:    #4d4d4d;
+    --border-color:        #3b3b3b;
+
+    --link-colour:         #5e7dff;
+    --link-hover-colour:   #4d6ce9;
+    --link-active-colour:  #2e47ad;
+    /*--link-visited-colour: #9c5eff;*/
+    --link-visited-colour: var(--link-colour);
+}
+
+html {
+    background-color: var(--background-color);
+    color: var(--text-colour);
+
+    font-family: "Inter", sans-serif;
+    font-size: large;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+/* anchor tag */
+a {
+    color: var(--link-colour);
+}
+
+a:hover {
+    color: var(--link-hover-colour);
+}
+
+a:active {
+    color: var(--link-active-colour);
+}
+
+a:visited {
+    color: var(--link-visited-colour);
+}

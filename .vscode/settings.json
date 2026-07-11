@@ -1,0 +1,7 @@
+{
+    "deno.enablePaths": [
+        "./server.ts",
+        "./deno.json",
+        "./deno.lock",
+    ]
+}
