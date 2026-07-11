@@ -1,6 +1,8 @@
 console.log("main.js is running at", new Date());
 console.log(new Array(2 ** 7).fill("-").join(""));
 
+const downloadButton = document.getElementById("download-button");
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d", {
     willReadFrequently: true // reading frequently to get the pixel data to compute the stuff and things
@@ -127,18 +129,25 @@ function computeColour(left, right) {
     return rulesMap.get(ruleName);
 }
 
+const notReadyText = "(not ready) ";
+downloadButton.href = "#";
+downloadButton.innerText = "(not ready) " + downloadButton.innerText;
+
 const startTime = performance.now();
 console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
     setTimeout(() => {computeLine(i)}, i);
     //computeLine(i);
 }
-const endTime = performance.now();
-console.log("computing ended at:", endTime);
 
-console.log(`total time: ${((endTime-startTime)/1000).toFixed(4)}s`);
+setTimeout(() => {
+    const endTime = performance.now();
+    console.log("computing ended at:", endTime);
 
-// set up button to download the image
-const img = canvas.toDataURL("image/png");
-const imgEl = document.getElementById("img");
-imgEl.src = img;
+    console.log(`total time: ${((endTime-startTime)/1000).toFixed(4)}s`);
+
+    // set up button to download the image
+    const img = canvas.toDataURL("image/png");
+    downloadButton.href = img;
+    downloadButton.innerText = downloadButton.innerText.replace(notReadyText, "");
+}, height/2+1);

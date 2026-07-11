@@ -50,6 +50,11 @@ a:visited {
     color: var(--link-visited-colour);
 }
 
+a[href="#"] {
+    color: red;
+    cursor: not-allowed;
+}
+
 /* canvas */
 canvas {
     outline: var(--border-color) 4px solid;
