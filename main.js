@@ -87,6 +87,11 @@ function computePixel(x, lineNo) {
         return;
     }
 
+    // check if we're too far left
+    if (x < width/2 - lineNo - 1) return;
+    // check if we're too far right
+    if (x > width/2 + lineNo - 1) return;
+
     // get the data of parent cells from the image
     const dataLeft  = ctx.getImageData(x  , lineNo*2-1, 1, 1);
     const dataRight = ctx.getImageData(x+1, lineNo*2-1, 1, 1);
@@ -121,7 +126,8 @@ function computeColour(left, right) {
 const startTime = performance.now();
 console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
-    setTimeout(() => {computeLine(i)}, i);
+    //setTimeout(() => {computeLine(i)}, i);
+    computeLine(i)
 }
 const endTime = performance.now();
 console.log("computing ended at:", endTime);
