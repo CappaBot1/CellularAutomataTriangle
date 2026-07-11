@@ -17,9 +17,16 @@ html {
     font-family: "Inter", sans-serif;
     font-size: large;
 
-    width: 100%;
     min-height: 100%;
 }
+
+body {
+    margin: 64px;
+}
+
+/*main {
+    text-align: center;
+}*/
 
 /* anchor tag */
 a {
@@ -36,4 +43,11 @@ a:active {
 
 a:visited {
     color: var(--link-visited-colour);
+}
+
+/* canvas */
+canvas {
+    outline: var(--border-color) 4px solid;
+    /*box-shadow: 32px 32px 64px #000;*/
+    box-shadow: 0 0 64px #000;
 }
