@@ -8,8 +8,12 @@ const ctx = canvas.getContext("2d", {
     willReadFrequently: true // reading frequently to get the pixel data to compute the stuff and things
 });
 
-const width = canvas.width;
-const height = canvas.height;
+const size = 800;
+const width  = size;
+const height = size;
+
+canvas.width = width;
+canvas.height = height;
 
 console.log(`canvas dimensions: ${width}x${height}`);
 
