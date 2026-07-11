@@ -68,8 +68,6 @@ ctx.fillRect(0, 0, width, height);
 
 function computeLine(lineNo) {
     //if (lineNo%100 === 0) console.log("computing line:", lineNo);
-    //console.log("computing line:", lineNo);
-    //console.groupCollapsed("computing line:", lineNo);
     for (
         let x = (lineNo-1)%2; // move over 1 pixel on odd lines
         x < width-1; // don't overshoot the canvas
@@ -77,7 +75,6 @@ function computeLine(lineNo) {
     ) {
         computePixel(x, lineNo);
     }
-    //console.groupEnd();
 }
 
 function computePixel(x, lineNo) {
@@ -124,7 +121,7 @@ function computeColour(left, right) {
 const startTime = performance.now();
 console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
-    computeLine(i);
+    setTimeout(() => {computeLine(i)}, i);
 }
 const endTime = performance.now();
 console.log("computing ended at:", endTime);
