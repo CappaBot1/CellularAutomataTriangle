@@ -76,8 +76,8 @@ function computeLine(lineNo) {
         x < width-1; // don't overshoot the canvas
         x += 2 // 2 pixels per cell
     ) {
-        setTimeout(() => computePixel(x, lineNo), x);
-        //computePixel(x, lineNo);
+        //setTimeout(() => computePixel(x, lineNo), x);
+        computePixel(x, lineNo);
     }
 }
 
@@ -130,8 +130,8 @@ function computeColour(left, right) {
 const startTime = performance.now();
 console.log("computing started at:", startTime);
 for (let i = 0; i < height/2; i++) {
-    //setTimeout(() => {computeLine(i)}, i);
-    computeLine(i);
+    setTimeout(() => {computeLine(i)}, i);
+    //computeLine(i);
 }
 const endTime = performance.now();
 console.log("computing ended at:", endTime);
