@@ -34,7 +34,10 @@ coloursData.forEach((colour, index) => {
 });
 
 const id = 213321; // this is where you put the id for the stuff and things!!!
-// ^ 213321 is cool according to the guy that invented this thing
+// ^ 213321 is the best id according to the guy that invented this thing
+// get id's from these videos:
+// Part 1: https://www.youtube.com/watch?v=lsEpsoiLPOU
+// Part 2: https://www.youtube.com/watch?v=6rIhJLKBY2E
 const numColours = 3;
 
 if (numColours*(numColours+1)/2 !== String(id).length) throw "id and numColours mismatch";
