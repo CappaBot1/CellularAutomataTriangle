@@ -5,7 +5,10 @@ const downloadButton = document.getElementById("download-button");
 
 const canvas = document.getElementById("canvas");
 
-const size = 2000;
+const size = 56;
+
+if (size%2 !== 0) throw "canvas not even!!!";
+if (size%4 !== 0) throw "canvas not 4ven!!!";
 
 const width  = size;
 const height = size;
@@ -88,7 +91,7 @@ function computeLine(lineNo) {
     ) {
         // starting pixel
         if (lineNo === 0) {
-            if (x !== Math.floor(width/2)-1+lineNo%2) continue;
+            if (x !== Math.floor(width/2)-1-(width/2)%2) continue;
 
             ctx.fillStyle = colours[1];
             ctx.fillRect(x, lineNo*2, 2, 2);
