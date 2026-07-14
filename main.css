@@ -30,7 +30,7 @@ main {
 }
 
 main > * {
-    margin: 60px auto;
+    /* margin: 60px auto; */
 }
 
 /* anchor tag */
@@ -60,4 +60,6 @@ canvas {
     outline: var(--border-color) 4px solid;
     /*box-shadow: 32px 32px 64px #000;*/
     box-shadow: 0 0 64px #000;
+    width: 800px;
+    image-rendering: pixelated;
 }
